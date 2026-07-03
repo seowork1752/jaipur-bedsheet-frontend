@@ -8,6 +8,7 @@ interface User {
   firstName: string;
   lastName: string;
   phone?: string;
+  role?: "admin" | "user";
   wishlist: string[];
   addresses: any[];
 }
