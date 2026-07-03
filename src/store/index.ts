@@ -24,7 +24,7 @@ interface UserStore {
   removeFromWishlist: (productId: string) => void;
 }
 
-export const useUserStore = create<UserStore>(
+export const useUserStore = create<UserStore>()(
   persist(
     (set) => ({
       user: null,
@@ -98,7 +98,7 @@ const calculateCartTotal = (items: CartItem[], discount: number, shippingCost: n
   return Math.round((subtotal - discount + shippingCost + tax) * 100) / 100;
 };
 
-export const useCartStore = create<CartStore>(
+export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
@@ -174,7 +174,7 @@ interface ThemeStore {
   toggleDarkMode: () => void;
 }
 
-export const useThemeStore = create<ThemeStore>(
+export const useThemeStore = create<ThemeStore>()(
   persist(
     (set) => ({
       isDarkMode: false,
